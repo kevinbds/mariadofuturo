@@ -7,6 +7,7 @@
     --accent-dark: #FF6B35;
 }
 
+html.dark-mode-init,
 body.dark-mode {
     --bg-primary: #1a1a1a;
     --bg-secondary: #0d0d0d;
@@ -101,8 +102,8 @@ header h1 {
 
 .dark-mode-toggle {
     position: fixed;
-    top: 20px;
-    right: 20px;
+    bottom: 30px;
+    right: 30px;
     background: var(--accent);
     border: none;
     color: white;
@@ -115,12 +116,23 @@ header h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.2s ease;
+    transition: transform 0.2s ease, background-color 0.3s ease;
     z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .dark-mode-toggle:hover {
     transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .dark-mode-toggle {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+        font-size: 1.3em;
+    }
 }
 
 @media (max-width: 768px) {
