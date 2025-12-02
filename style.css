@@ -79,6 +79,7 @@ header h1 {
 
     .logo {
         max-width: 400px;
+        width: 100%;
     }
 
     header h1 {
@@ -91,5 +92,45 @@ header h1 {
 
     .subtitle {
         font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 20px 10px;
+    }
+
+    .container {
+        padding: 30px 15px;
+    }
+
+    .logo {
+        max-width: 280px;
+        width: 100%;
+        margin: 0 auto 30px;
+    }
+
+    header {
+        margin-bottom: 50px;
+    }
+
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    .tagline {
+        font-size: 1em;
+        margin-bottom: 20px;
+    }
+
+    .subtitle {
+        font-size: 0.95em;
+        line-height: 1.5;
+    }
+
+    .cta-button {
+        padding: 14px 32px;
+        font-size: 1em;
+        margin-top: 30px;
     }
 }
