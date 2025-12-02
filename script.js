@@ -1,40 +1,22 @@
 document.addEventListener('DOMContentLoaded', function() {
     const darkModeToggle = document.getElementById('darkModeToggle');
-    const body = document.body;
     const html = document.documentElement;
 
-    const storedDarkMode = localStorage.getItem('darkMode');
-    let isDarkMode;
-
-    if (storedDarkMode !== null) {
-        isDarkMode = storedDarkMode === 'true';
-    } else {
-        isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    }
-
-    if (isDarkMode) {
-        body.classList.add('dark-mode');
-        html.classList.add('dark-mode');
-        darkModeToggle.textContent = '☀️';
-    } else {
-        html.classList.remove('dark-mode-init');
-    }
+    const isDarkMode = html.classList.contains('dark-mode');
+    darkModeToggle.textContent = isDarkMode ? '☀️' : '🌙';
 
     darkModeToggle.addEventListener('click', function() {
-        const isCurrentlyDark = body.classList.toggle('dark-mode');
-        html.classList.toggle('dark-mode');
-        localStorage.setItem('darkMode', isCurrentlyDark);
-        darkModeToggle.textContent = isCurrentlyDark ? '☀️' : '🌙';
+        const isNowDark = html.classList.toggle('dark-mode');
+        localStorage.setItem('darkMode', isNowDark);
+        darkModeToggle.textContent = isNowDark ? '☀️' : '🌙';
     });
 
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
         if (localStorage.getItem('darkMode') === null) {
             if (e.matches) {
-                body.classList.add('dark-mode');
                 html.classList.add('dark-mode');
                 darkModeToggle.textContent = '☀️';
             } else {
-                body.classList.remove('dark-mode');
                 html.classList.remove('dark-mode');
                 darkModeToggle.textContent = '🌙';
             }

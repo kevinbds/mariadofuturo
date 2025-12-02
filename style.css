@@ -7,8 +7,7 @@
     --accent-dark: #FF6B35;
 }
 
-html.dark-mode-init,
-body.dark-mode {
+html.dark-mode {
     --bg-primary: #1a1a1a;
     --bg-secondary: #0d0d0d;
     --text-primary: #ffffff;
