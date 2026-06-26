@@ -3,27 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maria do Futuro</title>
+    <title>Maria do Futuro — Educação em Tecnologia para Todos</title>
+    <meta name="description" content="Maria do Futuro leva oportunidades de aprendizado em programação e tecnologia para crianças e adolescentes das comunidades do Brasil.">
+    <meta name="theme-color" content="#FE9A21">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Maria do Futuro — Educação em Tecnologia para Todos">
+    <meta property="og:description" content="Levando oportunidades de aprendizado em programação e tecnologia para crianças e adolescentes das comunidades do Brasil.">
+    <meta property="og:image" content="mariadofuturo.svg">
+    <meta property="og:url" content="https://mariadofuturo.com.br">
+
+    <link rel="icon" type="image/svg+xml" href="mariadofuturo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script>
-        if (localStorage.getItem('darkMode') === 'true' || (!localStorage.getItem('darkMode') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark-mode');
-        }
+        // Apply theme before paint to avoid flash of incorrect theme.
+        (function () {
+            var stored = localStorage.getItem('darkMode');
+            var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (stored === 'true' || (stored === null && prefersDark)) {
+                document.documentElement.classList.add('dark-mode');
+            }
+        })();
     </script>
 </head>
 <body>
-    <button class="dark-mode-toggle" id="darkModeToggle">🌙</button>
-    <div class="container">
-        <header>
-            <img src="mariadofuturo.svg" alt="Maria do Futuro" class="logo">
-            <p class="tagline">Educação em Tecnologia para Todos</p>
-            <p class="subtitle">
-                Levando oportunidades de aprendizado em programação e tecnologia
+    <!-- Animated aurora background -->
+    <div class="aurora" aria-hidden="true">
+        <span class="aurora__blob aurora__blob--1"></span>
+        <span class="aurora__blob aurora__blob--2"></span>
+        <span class="aurora__blob aurora__blob--3"></span>
+    </div>
+
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Alternar tema claro e escuro">
+        <span class="theme-toggle__icon" aria-hidden="true">🌙</span>
+    </button>
+
+    <main class="page">
+        <!-- HERO -->
+        <section class="hero glass reveal">
+            <span class="badge">Em breve · 2026</span>
+            <img src="mariadofuturo.svg" alt="Maria do Futuro" class="hero__logo" width="600" height="600">
+            <p class="hero__tagline">Educação em Tecnologia para Todos</p>
+            <h1 class="hero__title">Transformando futuros através do código</h1>
+            <p class="hero__subtitle">
+                Levamos oportunidades de aprendizado em programação e tecnologia
                 para crianças e adolescentes das comunidades do Brasil.
             </p>
-            <a href="#" class="cta-button">Em Breve</a>
-        </header>
-    </div>
+            <div class="hero__actions">
+                <a href="#missao" class="btn btn--primary">Conheça a missão</a>
+                <a href="mailto:contato@mariadofuturo.com.br" class="btn btn--ghost">Quero apoiar</a>
+            </div>
+        </section>
+
+        <!-- STATS -->
+        <section class="stats reveal" aria-label="Nossos números">
+            <div class="stat glass">
+                <span class="stat__value">100%</span>
+                <span class="stat__label">Gratuito e aberto</span>
+            </div>
+            <div class="stat glass">
+                <span class="stat__value">+27</span>
+                <span class="stat__label">Estados para alcançar</span>
+            </div>
+            <div class="stat glass">
+                <span class="stat__value">∞</span>
+                <span class="stat__label">Sonhos possíveis</span>
+            </div>
+        </section>
+
+        <!-- MISSÃO / O QUE FAZEMOS -->
+        <section class="section reveal" id="missao">
+            <header class="section__head">
+                <p class="section__eyebrow">Nossa missão</p>
+                <h2 class="section__title">Tecnologia que abre portas</h2>
+                <p class="section__lead">
+                    Acreditamos que o acesso ao conhecimento tecnológico pode mudar
+                    trajetórias. Por isso, construímos pontes entre comunidades e o futuro.
+                </p>
+            </header>
+
+            <div class="cards">
+                <article class="card glass">
+                    <span class="card__icon">💻</span>
+                    <h3 class="card__title">Programação na prática</h3>
+                    <p class="card__text">
+                        Aulas acessíveis e mão na massa, do primeiro algoritmo
+                        ao primeiro projeto real.
+                    </p>
+                </article>
+                <article class="card glass">
+                    <span class="card__icon">🤝</span>
+                    <h3 class="card__title">Para as comunidades</h3>
+                    <p class="card__text">
+                        Levamos ensino de qualidade onde ele mais transforma,
+                        com inclusão e acolhimento.
+                    </p>
+                </article>
+                <article class="card glass">
+                    <span class="card__icon">🚀</span>
+                    <h3 class="card__title">Futuro com oportunidade</h3>
+                    <p class="card__text">
+                        Preparamos jovens para as carreiras de tecnologia
+                        e para sonhar mais alto.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <!-- CTA FINAL -->
+        <section class="cta glass reveal">
+            <h2 class="cta__title">Faça parte dessa história</h2>
+            <p class="cta__text">
+                Estamos começando. Acompanhe, compartilhe e ajude a levar
+                a Maria do Futuro para mais perto de quem precisa.
+            </p>
+            <a href="mailto:contato@mariadofuturo.com.br" class="btn btn--primary">Entre em contato</a>
+        </section>
+
+        <footer class="footer reveal">
+            <p>© <span id="year">2026</span> Maria do Futuro · Educação em tecnologia para todos.</p>
+        </footer>
+    </main>
+
     <script src="script.js"></script>
 </body>
 </html>
